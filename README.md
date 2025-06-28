@@ -1,6 +1,3 @@
----
-
-````markdown
 # 🌤️ Weather App - React
 
 Uma aplicação simples e moderna de previsão do tempo construída com **React** e **OpenWeatherMap API**. Permite ao usuário buscar o clima atual de qualquer cidade do mundo, exibindo informações como temperatura, umidade, vento e ícones visuais baseados na condição climática.
