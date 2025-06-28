@@ -10,7 +10,6 @@
     align-items: center;
 }
 
-
 .search-bar {
     display: flex;
     align-items: center;
@@ -21,6 +20,7 @@
 input {
     border: 4px solid #000;
     padding: 5px 10px;
+    font-weight: 700;
 }
 
 #search-icon {
@@ -40,7 +40,7 @@ input {
 .badge {
     background-color: rgb(255, 66, 66);
     color: #eee;
-    font-weight: 900;
+    font-weight: 700;
     padding: 3px 15px;
     margin-top: 5px;
     align-self: flex-start;
@@ -56,10 +56,34 @@ input {
 
 .temperature {
     font-size: 2rem;
+    font-weight: 700;
     line-height: 1;
-    margin-bottom: 20px;
 }
 
 .location {
     font-size: 1.5rem;
+}
+
+.weather-date{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.weather-date .col {
+    display: flex;
+    flex-direction: flex-start;
+    gap: 6px;
+}
+
+.weather-date .col p {
+    font-weight: 700;
+}
+
+hr {
+    width: 130%;
+    margin-top: 20px;
+    border: 2px solid #000;
 }
