@@ -62,7 +62,7 @@ npm run dev
 ✅ Exibição de temperatura, umidade e vento
 ✅ Ícones personalizados baseados nas condições climáticas
 ✅ Layout estilizado com CSS
-✅ Badge de calor fixo (`hot`)
+✅ Badge dinâmica de acordo com temperatura
 
 ---
 
@@ -73,8 +73,12 @@ src/
 │
 ├── assets/              # Ícones (sol, nuvem, chuva, etc.)
 ├── components/
-│   └── Weather.jsx      # Componente principal
-├── Weather.css          # Estilo da aplicação
+│   ├── Weather.jsx      # Componente Weather
+│   ├── Weather.css      # ---
+│   ├── Badge.jsx        # Componente Badge
+│   └── Badge.css        # --
+├── App.jsx              # Componente Principal
+├── index.css            # Css Reset
 └── main.jsx             # Entrada do React
 ```
 
@@ -86,19 +90,17 @@ As seguintes melhorias estão planejadas para o projeto:
 
 ### 💡 Funcionalidades
 
+* [X] **Badges dinâmicos**:
+  * `ice`: temperaturas < 16°C
+  * `normal`: entre 16°C e 28°C
+  * `hot`: > 28°C
+* [ ] **Geolocalização**: detectar cidade do usuário automaticamente com base no IP ou GPS
 * [ ] **Responsividade**: suporte total a dispositivos móveis (media queries)
 * [ ] **Modo Escuro**: alternância entre temas claro e escuro
 * [ ] **Tradução (i18n)**: suporte multilíngue (português e inglês)
-* [ ] **Geolocalização**: detectar cidade do usuário automaticamente com base no IP ou GPS
-* [ ] **Badges dinâmicos**:
-
-  * `ice`: temperaturas < 10°C
-  * `normal`: entre 10°C e 30°C
-  * `hot`: > 30°C
 * [ ] **Horário local**: exibir hora local da cidade pesquisada
 * [ ] **Acessibilidade (a11y)** com foco em teclado e leitores de tela
 * [ ] **Suporte a teclado**: acionar busca com tecla `Enter`
-* [ ] **Tratar Erro**: exibir menssagem de cidade não disponível
 
 ---
 
@@ -123,5 +125,5 @@ Contribuições são bem-vindas! Abra uma issue ou envie um pull request com sug
 
 ---
 
-> Desenvolvido com ☀️ por \[Onlyatsug]
+> Desenvolvido com ☀️ por onlyatsug
 

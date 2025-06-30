@@ -1,0 +1,22 @@
+.badge {
+    color: #eee;
+    font-weight: 700;
+    padding: 3px 15px;
+    margin-top: 5px;
+    align-self: flex-start;
+    font-size: 0.9rem;
+    box-shadow: 8px 8px 0 #000;
+    border: 4px solid #000;
+}
+
+.normal {
+    background-color: rgb(138, 138, 138);
+}
+
+.hot {
+    background-color: rgb(255, 66, 66);
+}
+
+.cold {
+    background-color: rgb(66, 195, 255);
+}
