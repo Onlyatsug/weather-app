@@ -92,12 +92,13 @@ As seguintes melhorias estão planejadas para o projeto:
   * `normal`: entre 16°C e 28°C
   * `hot`: > 28°C
 * [ ] **Geolocalização**: detectar cidade do usuário automaticamente com base no IP ou GPS
+* [ ] **Suporte a teclado**: acionar busca com tecla `Enter`
 * [ ] **Responsividade**: suporte total a dispositivos móveis (media queries)
 * [ ] **Modo Escuro**: alternância entre temas claro e escuro
 * [ ] **Tradução (i18n)**: suporte multilíngue (português e inglês)
 * [ ] **Horário local**: exibir hora local da cidade pesquisada
 * [ ] **Acessibilidade (a11y)** com foco em teclado e leitores de tela
-* [ ] **Suporte a teclado**: acionar busca com tecla `Enter`
+* [ ] **Calendário**: data e hora
 
 ---
 
