@@ -37,6 +37,7 @@ const Weather = () => {
         "13d": snowIcon,
         "13n": snowIcon,
     };
+    
     // Function to fetch weather data from OpenWeatherMap API
     const search = async (city) => {
         try {
@@ -82,6 +83,9 @@ const Weather = () => {
                 windSpeed: data.wind.speed,
                 icon: icon
             });
+            // Clear the input field and reset the placeholder
+            inputRef.current.placeholder = `Search...`;
+            inputRef.current.value = "";
         }
         catch (error) {
             console.error("Error fetching weather data:", error);
@@ -90,12 +94,18 @@ const Weather = () => {
 
     useEffect(() => {search("Cuiaba")}, []);
 
+    const keyDown = (event) => {
+        if (event.key === "Enter") {
+            search(inputRef.current.value);
+        }
+    }
+
     return (
         <div className="weather">
         {weatherData ? (
         <>
             <div className="search-bar">
-                <input type="text" placeholder={InputCondition} ref={inputRef}/>
+                <input type="text" placeholder={InputCondition} ref={inputRef} onKeyDown={keyDown}/>
                 <img id="search-icon" src={searchIcon} alt="search-icon" onClick={()=>search(inputRef.current.value)}/>
             </div>
                 <img className="weather-icon" src={weatherData.icon} alt="weather-icon"/>
