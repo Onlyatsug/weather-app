@@ -97,6 +97,8 @@ As seguintes melhorias estão planejadas para o projeto:
 * [ ] **Modo Escuro**: alternância entre temas claro e escuro
 * [ ] **Tradução (i18n)**: suporte multilíngue (português e inglês)
 * [ ] **Horário local**: exibir hora local da cidade pesquisada
+* [ ] **Bandeira local**: exibir bandeira (badge) do país
+* [ ] **Estado**: exibir badge estado da cidade
 * [ ] **Acessibilidade (a11y)** com foco em teclado e leitores de tela
 * [ ] **Calendário**: data e hora
 
