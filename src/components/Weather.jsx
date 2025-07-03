@@ -83,9 +83,10 @@ const Weather = () => {
                 windSpeed: data.wind.speed,
                 icon: icon
             });
-            // Clear the input field and reset the placeholder
-            inputRef.current.placeholder = `Search...`;
-            inputRef.current.value = "";
+            if (inputRef.current) {
+                inputRef.current.value = "";
+                inputRef.current.placeholder = InputCondition;
+            }
         }
         catch (error) {
             console.error("Error fetching weather data:", error);
