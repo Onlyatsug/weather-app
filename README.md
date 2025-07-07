@@ -9,7 +9,7 @@ Uma aplicação simples e moderna de previsão do tempo construída com **React*
 A aplicação exibe:
 
 - Temperatura atual em graus Celsius
-- Nome da cidade pesquisada
+- Nome e Estado (se disponível) da cidade pesquisada
 - Umidade e velocidade do vento
 - Ícone representando a condição climática
 - Um "badge" indicando a condição térmica (ex.: `hot`, `normal`, `ice`)
@@ -73,7 +73,9 @@ src/
 │   ├── Weather.jsx      # Componente Weather
 │   ├── Weather.css      # ---
 │   ├── Badge.jsx        # Componente Badge
-│   └── Badge.css        # --
+│   ├── Badge.css        # --
+│   ├── Country.jsx      # Componente Country
+│   └── Country.css      # --
 ├── App.jsx              # Componente Principal
 ├── index.css            # Css Reset
 └── main.jsx             # Entrada do React
@@ -91,16 +93,13 @@ As seguintes melhorias estão planejadas para o projeto:
   * `ice`: temperaturas < 16°C
   * `normal`: entre 16°C e 28°C
   * `hot`: > 28°C
-* [ ] **Geolocalização**: detectar cidade do usuário automaticamente com base no IP ou GPS
 * [x] **Suporte a teclado**: acionar busca com tecla `Enter`
-* [ ] **Responsividade**: suporte total a dispositivos móveis (media queries)
+* [X] **Estado**: exibir badge estado da cidade
+* [X] **Responsividade**: suporte total a dispositivos móveis (media queries)
+* [ ] **Geolocalização**: detectar cidade do usuário automaticamente com base no IP ou GPS
 * [ ] **Modo Escuro**: alternância entre temas claro e escuro
 * [ ] **Tradução (i18n)**: suporte multilíngue (português e inglês)
-* [ ] **Horário local**: exibir hora local da cidade pesquisada
-* [ ] **Bandeira local**: exibir bandeira (badge) do país
-* [ ] **Estado**: exibir badge estado da cidade
 * [ ] **Acessibilidade (a11y)** com foco em teclado e leitores de tela
-* [ ] **Calendário**: data e hora
 
 ---
 
