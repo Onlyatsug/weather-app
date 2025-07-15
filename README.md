@@ -96,10 +96,9 @@ As seguintes melhorias estão planejadas para o projeto:
 * [x] **Suporte a teclado**: acionar busca com tecla `Enter`
 * [X] **Estado**: exibir badge estado da cidade
 * [X] **Responsividade**: suporte total a dispositivos móveis (media queries)
-* [ ] **Geolocalização**: detectar cidade do usuário automaticamente com base no IP ou GPS
+* [X] **Geolocalização**: detectar cidade do usuário automaticamente com base no IP ou GPS
 * [ ] **Modo Escuro**: alternância entre temas claro e escuro
 * [ ] **Tradução (i18n)**: suporte multilíngue (português e inglês)
-* [ ] **Acessibilidade (a11y)** com foco em teclado e leitores de tela
 
 ---
 
