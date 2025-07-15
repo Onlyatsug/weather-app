@@ -38,49 +38,58 @@ function Weather() {
         "13d": snowIcon,
         "13n": snowIcon,
     };
-
+    
+    // Function to have the actual city of the input
+    function keyDown(event) {
+    if (event.key === "Enter") {
+        search(inputRef.current.value);
+    }
+}
     // Function to fetch weather data from OpenWeatherMap API
-    async function search(city) {
+    async function search(city, coord) {
         try {
-            // Check if the input is empty
-            if (!city) {
-                inputRef.current.value = "";
-                inputRef.current.placeholder = "No city provided";
-                return;
-            };
-            // URL for lat and lon
-            const url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${import.meta.env.VITE_WEATHER_API}`;
+            let lat, lon, locationName;
 
-            // Fetching the coordinates of the city
-            var response = await fetch(url);
-            const coord = await response.json();
-            if (coord.length === 0) {
-                inputRef.current.value = "";
-                inputRef.current.placeholder = "City not found";
-                return;
+            if (!coord) {
+                if (!city) {
+                    inputRef.current.value = "";
+                    inputRef.current.placeholder = "No city provided";
+                    return;
+                }
+
+                const url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${import.meta.env.VITE_WEATHER_API}`;
+                const response = await fetch(url);
+                const locationData = await response.json();
+
+                if (locationData.length === 0) {
+                    inputRef.current.value = "";
+                    inputRef.current.placeholder = "City not found";
+                    return;
+                }
+
+                lat = locationData[0].lat;
+                lon = locationData[0].lon;
+                locationName = locationData[0].name;
+            } else {
+                lat = coord[0].lat;
+                lon = coord[0].lon;
             }
 
-            // URL for weather data using the coordinates
-            const urlData = `https://api.openweathermap.org/data/2.5/weather?lat=${coord[0].lat}&lon=${coord[0].lon}&appid=${import.meta.env.VITE_WEATHER_API}&units=metric`;
-
-            // Fetching the weather data
-            var response = await fetch(urlData);
+            const urlData = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_WEATHER_API}&units=metric`;
+            const response = await fetch(urlData);
             const data = await response.json();
 
-            // Check if the response contains weather data
             if (!data || !data.weather || data.weather.length === 0) {
                 inputRef.current.value = "";
                 inputRef.current.placeholder = "Weather data not available";
                 return;
             }
-            console.log(data);
-            // Set the icon based on the icons provided by data
+
             const icon = allIcons[data.weather[0].icon] || clearIcon;
 
-            // Update the weatherData
             setWeatherData({
                 temperature: Math.floor(data.main.temp),
-                location: coord[0].name,
+                location: locationName || data.name,
                 humidity: data.main.humidity,
                 windSpeed: data.wind.speed,
                 icon: icon,
@@ -91,20 +100,26 @@ function Weather() {
                 inputRef.current.value = "";
                 inputRef.current.placeholder = InputCondition;
             }
-        }
-        catch (error) {
+        } catch (error) {
             console.error("Error fetching weather data:", error);
         }
     }
-
-    useEffect(() => { search("Cuiaba"); }, []);
-
-    function keyDown(event) {
-        if (event.key === "Enter") {
-            search(inputRef.current.value);
-        }
-    }
-
+    // useEffect hook to get user's current location and fetch weather data   
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const coordNav = [{
+                    lat: position.coords.latitude,
+                    lon: position.coords.longitude
+                }];
+                search(null, coordNav);
+            },
+            (error) => {
+                search("Juina");
+            }
+        );
+    }, []);
+    
     return (
         <div className="weather">
             {weatherData ? (
